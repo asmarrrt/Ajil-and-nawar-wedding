@@ -11,7 +11,7 @@ def home():
     cur = conn.cursor()
 
     cur.execute("""
-        SELECT nama, hadir, pesan
+        SELECT id, nama, hadir, pesan
         FROM rsvp
         ORDER BY id DESC
     """)
@@ -24,6 +24,7 @@ def home():
         "index.html",
         ucapan=ucapan
     )
+
 
 # Simpan RSVP
 @app.route("/rsvp", methods=["POST"])
@@ -46,7 +47,8 @@ def rsvp():
 
     return redirect("/#rsvp")
 
-# Halaman admin
+
+# Halaman Admin
 @app.route("/admin")
 def admin():
 
@@ -54,7 +56,7 @@ def admin():
     cur = conn.cursor()
 
     cur.execute("""
-        SELECT nama, hadir, pesan
+        SELECT id, nama, hadir, pesan
         FROM rsvp
         ORDER BY id DESC
     """)
@@ -65,26 +67,54 @@ def admin():
 
     html = """
     <h1>Daftar RSVP</h1>
+
     <table border='1' cellpadding='10'>
     <tr>
         <th>Nama</th>
         <th>Kehadiran</th>
         <th>Ucapan</th>
+        <th>Aksi</th>
     </tr>
     """
 
     for row in data:
+
         html += f"""
         <tr>
-            <td>{row[0]}</td>
             <td>{row[1]}</td>
             <td>{row[2]}</td>
+            <td>{row[3]}</td>
+            <td>
+                <a href="/hapus/{row[0]}"
+                onclick="return confirm('Hapus ucapan ini?')">
+                Hapus
+                </a>
+            </td>
         </tr>
         """
 
     html += "</table>"
 
     return html
+
+
+# Hapus RSVP
+@app.route("/hapus/<int:id>")
+def hapus(id):
+
+    conn = sqlite3.connect("wedding.db")
+    cur = conn.cursor()
+
+    cur.execute(
+        "DELETE FROM rsvp WHERE id=?",
+        (id,)
+    )
+
+    conn.commit()
+    conn.close()
+
+    return redirect("/admin")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
