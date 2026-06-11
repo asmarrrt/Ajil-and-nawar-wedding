@@ -443,8 +443,10 @@
     </a>
 
 </nav>
+<link rel="stylesheet" href="{{ url_for('static', filename='static/style.css') }}">
 
-<script src="/static/script.js"></script>
+<script src="{{ url_for('static', filename='static/script.js') }}"></script>
+<!--script src="/static/script.js"></script-->
 
 </body>
   </html>
