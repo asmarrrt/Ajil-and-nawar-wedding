@@ -74,9 +74,9 @@
 
 <audio id="music" loop>
 
-    <source
-    src="assets/music/wedding.mp3"
-    type="audio/mpeg">
+ <source
+src="{{ url_for('static', filename='music.mp3') }}"
+type="audio/mpeg">
 
 </audio>
 
@@ -154,9 +154,9 @@
 
             <div class="photo-frame">
 
-                <img
-                src="static/gallery/groom.jpg"
-                alt="Groom">
+<img
+src="{{ url_for('static', filename='gallery/groom.jpg') }}"
+alt="Groom">
 
             </div>
 
@@ -180,8 +180,8 @@
             <div class="photo-frame">
 
                 <img
-                src="static/gallery/bride.jpg"
-                alt="Bride">
+src="{{ url_for('static', filename='gallery/bride.jpg') }}"
+alt="bride">
 
             </div>
 
