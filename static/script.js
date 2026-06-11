@@ -286,7 +286,7 @@ copyButtons.forEach(btn => {
     () => {
 
         const rekening =
-        "1234567890";
+        "1100683438";
 
         navigator.clipboard.writeText(
         rekening
