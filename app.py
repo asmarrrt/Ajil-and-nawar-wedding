@@ -11,7 +11,7 @@ def home():
     cur = conn.cursor()
 
     cur.execute("""
-        SELECT id, nama, hadir, pesan
+        SELECT nama, hadir, pesan
         FROM rsvp
         ORDER BY id DESC
     """)
