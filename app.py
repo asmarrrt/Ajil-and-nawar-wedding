@@ -3,28 +3,26 @@ import sqlite3
 
 app = Flask(__name__)
 
-# Halaman utama
 @app.route("/")
 def home():
-
     conn = sqlite3.connect("wedding.db")
     cur = conn.cursor()
     
-cur.execute("""
-    SELECT id, nama, hadir, pesan
-    FROM rsvp
-    ORDER BY id DESC
-""")
-
-
+    cur.execute("""
+        SELECT id, nama, hadir, pesan
+        FROM rsvp
+        ORDER BY id DESC
+    """)
+    
     ucapan = cur.fetchall()
-
     conn.close()
 
     return render_template(
         "index.html",
         ucapan=ucapan
     )
+
+
 
 
 # Simpan RSVP
