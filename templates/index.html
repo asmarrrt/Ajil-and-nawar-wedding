@@ -385,16 +385,11 @@ alt="bride">
 
             <strong>{{ item[0] }}</strong>
 
-            {% if item[1] == "Hadir" %}
-                <span class="hadir">✓ Hadir</span>
-            {% else %}
-                <span class="tidak-hadir">✕ Tidak Hadir</span>
-            {% endif %}
+{% if item[1] == "Hadir" %}
+    ...
+{% endif %}
 
-        </div>
-
-        <p>{{ item[2] }}</p>
-
+<p>{{ item[2] }}</p>
     </div>
 
     {% endfor %}
