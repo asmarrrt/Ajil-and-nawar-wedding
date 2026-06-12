@@ -379,24 +379,17 @@ alt="bride">
 
     {% for item in ucapan %}
 
-    <div class="ucapan-card">
-
-        <div class="ucapan-header">
-
-            <strong>{{ item[0] }}</strong>
-
-{% if item[1] == "Hadir" %}
-    <span class="hadir">✓ Hadir</span>
-{% else %}
-    <span class="tidak-hadir">✕ Tidak Hadir</span>
-{% endif %}
-
-</div>
-
-<p>{{ item[2] }}</p>
-
+<div class="ucapan-card">
+    <div class="ucapan-header">
+        <strong>{{ item[1] }}</strong>  <!-- Nama -->
+        {% if item[2] == "Hadir" %}
+            <span class="hadir">✓ Hadir</span>
+        {% else %}
+            <span class="tidak-hadir">✕ Tidak Hadir</span>
+        {% endif %}
     </div>
-
+    <p>{{ item[3]|escape }}</p>  <!-- Pesan dengan escape untuk XSS safety -->
+</div>
     {% endfor %}
 
 </div>
