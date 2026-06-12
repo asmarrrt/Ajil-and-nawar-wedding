@@ -8,19 +8,23 @@ def home():
     conn = sqlite3.connect("wedding.db")
     cur = conn.cursor()
     
-cur.execute("""
-    SELECT id, nama, hadir, pesan FROM rsvp ORDER BY id DESC
-""")
-ucapan = [
-    {"id": row[0], "nama": row[1], "hadir": row[2], "pesan": row[3]}
-    for row in cur.fetchall()
-]
+    cur.execute("""
+        SELECT id, nama, hadir, pesan
+        FROM rsvp
+        ORDER BY id DESC
+    """)
+    
+    # Convert to list of dicts for better template access
+    ucapan = [
+        {"id": row[0], "nama": row[1], "hadir": row[2], "pesan": row[3]}
+        for row in cur.fetchall()
+    ]
+    conn.close()
+
     return render_template(
         "index.html",
         ucapan=ucapan
     )
-
-
 
 
 # Simpan RSVP
