@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- TITLE -->
-    <title>The Wedding Of Arif & Nabila</title>
+    <title>The Wedding Of Ajil & Munawwara</title>
 
     <!-- FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -373,28 +373,29 @@ alt="bride">
         </button>
 
     </form>
-<div class="ucapan-list">
 
-    <h3>Ucapan & Doa</h3>
+    <div class="ucapan-list">
 
-    {% for item in ucapan %}
+        <h3>Ucapan & Doa</h3>
 
-<div class="ucapan-card">
-    <div class="ucapan-header">
-        <strong>{{ item[1] }}</strong>  <!-- Nama -->
-        {% if item[2] == "Hadir" %}
-            <span class="hadir">✓ Hadir</span>
-        {% else %}
-            <span class="tidak-hadir">✕ Tidak Hadir</span>
-        {% endif %}
+        {% for item in ucapan %}
+        <div class="ucapan-card">
+            <div class="ucapan-header">
+                <strong>{{ item.nama }}</strong>
+                {% if item.hadir == "Hadir" %}
+                    <span class="hadir">✓ Hadir</span>
+                {% else %}
+                    <span class="tidak-hadir">✕ Tidak Hadir</span>
+                {% endif %}
+            </div>
+            <p>{{ item.pesan }}</p>
+        </div>
+        {% endfor %}
+
     </div>
-    <p>{{ item[3]|escape }}</p>  <!-- Pesan dengan escape untuk XSS safety -->
-</div>
-    {% endfor %}
-
-</div>
 
 </section>
+
 <!-- ========================= -->
 <!-- FOOTER -->
 <!-- ========================= -->
@@ -438,9 +439,8 @@ alt="bride">
     </a>
 
 </nav>
+
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 
-<!--script src="/static/script.js"></script-->
-
 </body>
-  </html>
+</html>
