@@ -381,20 +381,24 @@ alt="bride">
 
     <div class="ucapan-card">
 
-    <div class="ucapan-header">
+        <div class="ucapan-header">
 
-        <strong>{{ item[1] }}</strong>
+            <strong>{{ item[1] }}</strong>
 
-        {% if item[2] == "Hadir" %}
-            <span class="hadir">✓ Hadir</span>
-        {% else %}
-            <span class="tidak-hadir">✕ Tidak Hadir</span>
-        {% endif %}
+            {% if item[2] == "Hadir" %}
+                <span class="hadir">✓ Hadir</span>
+            {% else %}
+                <span class="tidak-hadir">✕ Tidak Hadir</span>
+            {% endif %}
+
+        </div>
+
+        <p>{{ item[3] }}</p>
 
     </div>
 
-    <p>{{ item[3] }}</p>
-
+    {% endfor %}
+</div
     </div>
 
 </section>
