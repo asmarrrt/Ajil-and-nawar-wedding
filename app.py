@@ -11,10 +11,10 @@ def home():
     cur = conn.cursor()
 
     cur.execute("""
-        SELECT nama, hadir, pesan
-        FROM rsvp
-        ORDER BY id DESC
-    """)
+    SELECT nama, hadir, pesan
+    FROM rsvp
+    ORDER BY id DESC
+""")
 
     ucapan = cur.fetchall()
 
