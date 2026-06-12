@@ -9,13 +9,12 @@ def home():
     cur = conn.cursor()
     
 cur.execute("""
-    SELECT id, nama, hadir, pesan
-    FROM rsvp
+    SELECT id, nama, hadir, pesan FROM rsvp ORDER BY id DESC
 """)
-    
-    ucapan = cur.fetchall()
-    conn.close()
-
+ucapan = [
+    {"id": row[0], "nama": row[1], "hadir": row[2], "pesan": row[3]}
+    for row in cur.fetchall()
+]
     return render_template(
         "index.html",
         ucapan=ucapan
