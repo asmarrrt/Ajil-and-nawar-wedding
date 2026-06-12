@@ -9,12 +9,13 @@ def home():
 
     conn = sqlite3.connect("wedding.db")
     cur = conn.cursor()
-
-    cur.execute("""
-    SELECT nama, hadir, pesan
+    
+cur.execute("""
+    SELECT id, nama, hadir, pesan
     FROM rsvp
     ORDER BY id DESC
 """)
+
 
     ucapan = cur.fetchall()
 
