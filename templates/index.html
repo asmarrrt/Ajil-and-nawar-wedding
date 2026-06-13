@@ -373,35 +373,38 @@ alt="bride">
         </button>
 
     </form>
+    
     <div class="ucapan-list">
 
-    <h3>Ucapan & Doa</h3>
+        <h3>Ucapan & Doa</h3>
 
-    {% for item in ucapan %}
+        {% for item in ucapan %}
 
-    <div class="ucapan-card">
+        <div class="ucapan-card">
 
-        <div class="ucapan-header">
+            <div class="ucapan-header">
 
-            <strong>{{ item[1] }}</strong>
+                <strong>{{ item.nama }}</strong>
 
-            {% if item[2] == "Hadir" %}
-                <span class="hadir">✓ Hadir</span>
-            {% else %}
-                <span class="tidak-hadir">
-                    ✕ Tidak Hadir
-                </span>
+                {% if item.hadir == "Hadir" %}
+                    <span class="hadir">✓ Hadir</span>
+                {% else %}
+                    <span class="tidak-hadir">
+                        ✕ Tidak Hadir
+                    </span>
+                {% endif %}
+
+            </div>
+
+            {% if item.pesan %}
+                <p>{{ item.pesan }}</p>
             {% endif %}
 
         </div>
 
-        <p>{{ item[3] }}</p>
+        {% endfor %}
 
     </div>
-
-    {% endfor %}
-
-</div>
 
 </section>
 
