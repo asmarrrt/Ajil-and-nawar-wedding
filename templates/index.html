@@ -334,7 +334,7 @@ alt="bride">
 
         <p>1100683438</p>
 
-        <button>
+        <button class="disable">
             Salin Nomor Rekening
         </button>
 
@@ -379,34 +379,30 @@ alt="bride">
 
         <h3>Ucapan & Doa</h3>
 
-        {% for item in ucapan %}
-
+       
         <div class="ucapan-card">
 
             <div class="ucapan-number">
-                {{ loop.revindex }}
+               Nomor ucapan
             </div>
 
             <div class="ucapan-content">
 
                 <div class="ucapan-info">
-                    <strong>{{ item.nama }}</strong>
-                    {% if item.hadir == "Hadir" %}
-                        <span class="hadir">reererr</span>
-                    {% else %}
-                        <span class="tidak-hadir">✕erererair</span>
-                    {% endif %}
+                    <strong>Nama</strong>
+                   
+                        <span class="hadir">Hadir</span>
+                   
                 </div>
 
-                {% if item.pesan %}
-                    <p class="ucapan-pesan">{{ item.pesan }}</p>
-                {% endif %}
+         
+                    <p class="ucapan-pesan">Pesan</p>
+            
 
             </div>
 
         </div>
 
-        {% endfor %}
 
     </div>
 
