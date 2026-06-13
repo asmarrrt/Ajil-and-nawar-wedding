@@ -375,36 +375,22 @@ alt="bride">
 
     </form>
     
-    <div class="ucapan-list">
-
-        <h3>Ucapan & Doa</h3>
-
-       
-        <div class="ucapan-card">
-
-            <div class="ucapan-number">
-               Nomor ucapan
-            </div>
-
-            <div class="ucapan-content">
-
-                <div class="ucapan-info">
-                    <strong>Nama</strong>
-                   
-                        <span class="hadir">Hadir</span>
-                   
-                </div>
-
-         
-                    <p class="ucapan-pesan">Pesan</p>
-            
-
-            </div>
-
-        </div>
-
-
+ <!-- SESUDAH (BENAR) -->
+{% for item in ucapan %}
+<div class="ucapan-card">
+    <div class="ucapan-header">
+        <strong>{{ item.nama }}</strong>
+        {% if item.hadir == "Hadir" %}
+            <span class="hadir">✓ Hadir</span>
+        {% else %}
+            <span class="tidak-hadir">✕ Tidak Hadir</span>
+        {% endif %}
     </div>
+    {% if item.pesan %}
+        <p>{{ item.pesan }}</p>
+    {% endif %}
+</div>
+{% endfor %}
 
 </section>
 
