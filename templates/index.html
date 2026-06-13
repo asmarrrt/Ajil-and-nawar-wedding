@@ -382,23 +382,26 @@ alt="bride">
 
         <div class="ucapan-card">
 
-            <div class="ucapan-header">
+            <div class="ucapan-number">
+                {{ loop.revindex }}
+            </div>
 
-                <strong>{{ item.nama }}</strong>
+            <div class="ucapan-content">
 
-                {% if item.hadir == "Hadir" %}
-                    <span class="hadir">✓ Hadir</span>
-                {% else %}
-                    <span class="tidak-hadir">
-                        ✕ Tidak Hadir
-                    </span>
+                <div class="ucapan-info">
+                    <strong>{{ item.nama }}</strong>
+                    {% if item.hadir == "Hadir" %}
+                        <span class="hadir">✓ Hadir</span>
+                    {% else %}
+                        <span class="tidak-hadir">✕ Tidak Hadir</span>
+                    {% endif %}
+                </div>
+
+                {% if item.pesan %}
+                    <p class="ucapan-pesan">{{ item.pesan }}</p>
                 {% endif %}
 
             </div>
-
-            {% if item.pesan %}
-                <p>{{ item.pesan }}</p>
-            {% endif %}
 
         </div>
 
