@@ -666,3 +666,38 @@ MOBILE
     color:red;
     font-weight:bold;
 }
+
+@media (max-width: 768px) {
+
+    #cover{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding:20px;
+    }
+
+    .cover-content{
+        padding:15px;
+    }
+
+    .cover-content .subtitle{
+        font-size:0.7rem;
+        letter-spacing:2px;
+    }
+
+    .cover-content h1{
+        font-size:2rem !important;
+        line-height:1.2;
+        margin:10px 0;
+    }
+
+    #guest-name{
+        font-size:1.1rem;
+        margin-bottom:20px;
+    }
+
+    #openInvitation{
+        padding:12px 25px;
+        font-size:0.9rem;
+    }
+}
